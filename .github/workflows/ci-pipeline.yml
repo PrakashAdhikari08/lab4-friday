@@ -52,4 +52,3 @@ jobs:
           node-version: "18"
       - name: Install dependencies
         run: npm clean-install
-      - name: Run Unit Tests
