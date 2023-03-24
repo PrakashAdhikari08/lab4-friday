@@ -39,3 +39,17 @@ jobs:
       with:
         name: unit-test-${{ github.sha }}
         path: reports/report.xml
+
+
+  sast-tests:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm clean-install
+      - name: Run Unit Tests
